@@ -1,0 +1,15 @@
+input:read-only {
+  background-color: #ebebe4;
+  border: 1px solid #abadb3;
+  padding: 5px;
+}
+
+.logo {
+  border: 0px solid #ffffff;
+}
+
+.total {
+  font-size: 1.15em;
+  font-weight: bold;
+  color: green;
+}

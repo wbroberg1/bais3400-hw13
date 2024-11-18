@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block title %} All Movies {% endblock %} {% block
+body %}
+
+<hr />
+
+{% if no_match %}
+<p>{{ no_match }}</p>
+{% endif %} {% if movies %}
+<h1>{{ page_heading }}</h1>
+<p class="total">{{ total }} movies found.</p>
+<hr />
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>Title</th>
+      <th>Popularity</th>
+      <th>Runtime</th>
+      <th>Release Year</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for movie in movies %}
+    <tr class="align-middle fs-5">
+      <td>{{ loop.index }}</td>
+      <td>{{ movie.title }}</td>
+      <td>{{ movie.popularity }}</td>
+      <td>{{ movie.runtime }}</td>
+      <td>{{ movie.releaseYear }}</td>
+
+      <td>
+        <form
+          action="{{ url_for('movie_details', movie_id=movie.movieId) }}"
+          method="POST"
+        >
+          <!-- <input type="submit" value="Details" /> -->
+          <button type="submit" class="btn btn-secondary">Details</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{{ pagination.links}} {% endif %} {% endblock %}

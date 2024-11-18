@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block title %} Big Film Database {% endblock %} {%
+block body %}
+
+<h1>Welcome to the Big Film Database</h1>
+<p>
+  This is a database of movies. You can view all movies, search for movies by
+  title or year, and view details of individual movies.
+</p>
+<hr />
+<img
+  src="{{ url_for('static', filename='images/movies.jpg') }}"
+  class="img-fluid"
+  alt="Movie poster collage"
+/>
+
+{% endblock %}

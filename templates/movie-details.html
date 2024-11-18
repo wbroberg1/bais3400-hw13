@@ -1,0 +1,230 @@
+{% extends 'base.html' %} {% block title %} {{ movie.title }} Details {%
+endblock %} {% block body %}
+<h1><span class="italic">{{ movie.title }}</span></h1>
+<hr />
+
+{% if movie %}
+
+<form class="form-horizontal">
+  <p>
+    <label
+      class="control-label col-sm-1 text-end align-middle pe-2 fs-5"
+      for="movie_id"
+    >
+      Movie Id
+    </label>
+    <input
+      class="align-middle"
+      type="text"
+      id="movie_id"
+      name="movie_id"
+      value="{{ movie.movieId }}"
+      readonly
+    />
+  </p>
+
+  <p>
+    <label
+      class="control-label col-sm-1 text-end align-middle pe-2 fs-5"
+      for="movie_imdb"
+    >
+      IMDB
+    </label>
+    <input
+      class="align-middle"
+      type="text"
+      id="movie_imdb"
+      name="movie_imdb"
+      value="{{ movie.IMDB }}"
+      readonly
+    />
+  </p>
+
+  <p>
+    <label
+      class="control-label col-sm-1 text-end align-middle pe-2 fs-5"
+      for="popularity"
+    >
+      Popularity
+    </label>
+    <input
+      class="align-middle"
+      type="text"
+      id="popularity"
+      name="popularity"
+      value="{{ movie.popularity }}"
+      readonly
+    />
+  </p>
+
+  <p>
+    <label
+      class="control-label col-sm-1 text-end align-middle pe-2 fs-5"
+      for="avg_rating"
+    >
+      Average Rating
+    </label>
+    <input
+      class="align-middle"
+      type="text"
+      id="avg_rating"
+      name="avg_rating"
+      value="{{ movie.averagerating }}"
+      readonly
+    />
+  </p>
+
+  <p>
+    <label
+      class="control-label col-sm-1 text-end align-middle pe-2 fs-5"
+      for="tot_rating"
+    >
+      Total Rating
+    </label>
+    <input
+      type="text"
+      class="align-middle"
+      id="tot_rating"
+      name="tot_rating"
+      value="{{ movie.totalrating }}"
+      readonly
+    />
+  </p>
+
+  <p>
+    <label
+      class="control-label col-sm-1 text-end align-middle pe-2 fs-5"
+      for="runtime"
+    >
+      Runtime
+    </label>
+    <input
+      type="text"
+      class="align-middle"
+      id="runtime"
+      name="runtime"
+      value="{{ movie.runtime }}"
+      readonly
+    />
+  </p>
+
+  <p>
+    <label
+      class="control-label col-sm-1 text-end align-middle pe-2 fs-5"
+      for="release_date"
+    >
+      Release Date
+    </label>
+    <input
+      type="text"
+      class="align-middle"
+      id="release_date"
+      name="release_date"
+      value="{{ movie.releasedate }}"
+      readonly
+    />
+  </p>
+
+  <p>
+    <label
+      class="control-label col-sm-1 text-end align-middle pe-2 fs-5"
+      for="budget"
+    >
+      Budget
+    </label>
+    {% if movie.budget %}
+    <input
+      type="text"
+      class="align-middle"
+      id="budget"
+      name="budget"
+      value='{{ "${:,.2f}".format(movie.budget) }}'
+      readonly
+    />
+    {% else %}
+    <input
+      type="text"
+      class="align-middle"
+      id="budget"
+      name="budget"
+      value=""
+      readonly
+    />
+    {% endif %}
+  </p>
+
+  <p>
+    <label
+      class="control-label col-sm-1 text-end align-middle pe-2 fs-5"
+      for="revenue"
+    >
+      Revenue
+    </label>
+    {% if movie.revenue %}
+    <input
+      type="text"
+      class="align-middle"
+      id="revenue"
+      name="revenue"
+      value='{{ "${:,.2f}".format(movie.revenue) }}'
+      readonly
+    />
+    {% else %}
+    <input
+      type="text"
+      class="align-middle"
+      id="revenue"
+      name="revenue"
+      value=""
+      readonly
+    />
+    {% endif %}
+  </p>
+
+  <p>
+    <label
+      class="control-label col-sm-1 text-end align-middle pe-2 fs-5"
+      for="profit"
+    >
+      Profit
+    </label>
+    {% if movie.profit %}
+    <input
+      type="text"
+      class="align-middle"
+      id="profit"
+      name="profit"
+      value='{{ "${:,.2f}".format(movie.profit) }}'
+      readonly
+    />
+    {% else %}
+    <input
+      type="text"
+      class="align-middle"
+      id="profit"
+      name="profit"
+      value=""
+      readonly
+    />
+    {% endif %}
+  </p>
+
+  <p>
+    <label
+      class="control-label col-sm-1 text-end align-middle pe-2 fs-5"
+      for="language"
+    >
+      Language
+    </label>
+    <input
+      type="text"
+      class="align-middle"
+      id="language"
+      name="language"
+      value="{{ movie.language }}"
+      readonly
+    />
+  </p>
+
+  {% endif %} {% endblock %}
+</form>
